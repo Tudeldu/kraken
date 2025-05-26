@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What We Know About You</title>
+    <link rel="stylesheet" href="style/main.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script async src="https://fpcdn.io/v3/9bHlyOaoAl6h0v3g0Wfn"></script>
+</head>
+
+<body class="bg-light">
+    <div class="container py-4">
+        <header class="mb-4 d-flex justify-content-between align-items-center">
+            <div>
+                <h1 class="mb-0">🕵️‍♂️ What We Know About You</h1>
+                <p class="text-muted">This site shows how much data can be gathered from a simple visit.</p>
+            </div>
+
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
+            </div>
+        </header>
+
+        <div class="row g-4">
+            <!-- Fingerprint & Info -->
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">Your Device & Network Info</div>
+                    <div class="card-body">
+                        <div id="info" style="white-space: pre-wrap; font-family: monospace;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Behavior Chart -->
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-secondary text-white">Live Behavior Summary</div>
+                    <div class="card-body">
+                        <canvas id="behaviorChart" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visit History -->
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-info text-white">Visit History</div>
+                    <div class="card-body">
+                        <canvas id="visitHistoryChart" height="100"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">Your Location</div>
+                    <div class="card-body p-0">
+                        <div id="map" style="width: 100%; height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heatmap Canvas -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-danger text-white">Live Heatmap (Clicks & Moves)</div>
+                    <div class="card-body position-relative" style="height: 300px;">
+                        <div class="text-muted small">Mouse activity will appear as glowing red spots over time.</div>
+                        <!-- Heatmap canvas is absolutely positioned -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script type="module" src="script/main.js" defer></script>
+</body>
+
+</html>

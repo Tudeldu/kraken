@@ -1,0 +1,20 @@
+{
+  "name": "fingerprinting",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Me",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "run:test",
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "@fingerprintjs/fingerprintjs-pro": "^3.11.10",
+    "axios": "^1.9.0",
+    "express": "^5.1.0",
+    "fingerprintjs": "^0.5.3"
+  },
+  "keywords": []
+}
