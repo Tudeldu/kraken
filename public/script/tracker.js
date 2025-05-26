@@ -18,7 +18,7 @@ export async function trackVisit() {
     const fingerprint = (await fp.get()).visitorId;
 
     // Request location from backend
-    const serverData = await fetch('/api/client-info').then(res => res.json());
+    // const serverData = await fetch('/api/client-info').then(res => res.json());
 
     // Get geolocation (browser-based)
     const geolocation = await new Promise(resolve => {
@@ -35,7 +35,7 @@ export async function trackVisit() {
     });
 
     return {
-        ...serverData,
+        // ...serverData,
         screenResolution: `${window.screen.width}x${window.screen.height}`,
         platform: navigator.platform,
         language: navigator.language,
