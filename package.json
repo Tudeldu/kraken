@@ -14,6 +14,7 @@
     "@fingerprintjs/fingerprintjs-pro": "^3.11.10",
     "axios": "^1.9.0",
     "express": "^5.1.0",
+    "fingerprinting": "file:",
     "fingerprintjs": "^0.5.3"
   },
   "keywords": []
