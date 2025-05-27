@@ -1,7 +1,14 @@
-const express = require('express');
-const path = require('path');
-const clientInfoRoute = require('./routes/clientInfo');
-const trackRoute = require('./routes/track');
+import dotenv from 'dotenv';
+dotenv.config();
+
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import clientInfoRoute from './routes/clientInfo.js';
+import trackRoute from './routes/track.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(express.static(path.join(__dirname, '../public')));

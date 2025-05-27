@@ -4,7 +4,7 @@
   "description": "",
   "license": "ISC",
   "author": "Me",
-  "type": "commonjs",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "test": "run:test",
@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "@fingerprintjs/fingerprintjs-pro": "^3.11.10",
+    "@fingerprintjs/fingerprintjs-pro-server-api": "^6.5.0",
     "axios": "^1.9.0",
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "fingerprinting": "file:",
     "fingerprintjs": "^0.5.3"

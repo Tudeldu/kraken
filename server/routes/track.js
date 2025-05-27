@@ -1,8 +1,8 @@
-const express = require('express');
-const axios = require('axios');
-const router = express.Router();
+import express from 'express';
+import axios from 'axios';
+import { FingerprintJsServerApiClient, Region } from '@fingerprintjs/fingerprintjs-pro-server-api';
 
-const FINGERPRINTJS_SECRET_KEY = process.env.FPJS_SECRET_KEY; // from .env
+const router = express.Router();
 
 router.post('/fingerprint', async (req, res) => {
     const { visitorId } = req.body;
@@ -10,17 +10,19 @@ router.post('/fingerprint', async (req, res) => {
     if (!visitorId) return res.status(400).json({ error: 'Missing visitorId' });
 
     try {
-        const response = await axios.get(`https://api.fpjs.io/visitors/${visitorId}`, {
-            headers: {
-                'Authorization': `Bearer ${FINGERPRINTJS_SECRET_KEY}`
-            }
+        const client = new FingerprintJsServerApiClient({
+            apiKey: process.env.FPJS_SECRET_KEY,
+            region: Region.EU,
         });
 
-        return res.json(response.data);
+        // Await the visitor history result
+        const visitorHistory = await client.getVisitorHistory(visitorId);
+
+        return res.json(visitorHistory);
     } catch (err) {
         console.error('Error fetching FPJS data:', err.response?.data || err.message);
         return res.status(500).json({ error: 'Failed to fetch fingerprint data' });
     }
 });
 
-module.exports = router;
+export default router;
